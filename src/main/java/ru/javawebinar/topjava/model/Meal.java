@@ -1,32 +1,29 @@
 package ru.javawebinar.topjava.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+@Getter
 public class Meal {
+
+    @Setter
+    private Long id;
+
     private final LocalDateTime dateTime;
 
     private final String description;
 
     private final int calories;
 
-    public Meal(LocalDateTime dateTime, String description, int calories) {
+    public Meal(LocalDateTime dateTime, String description, int calories, Long id) {
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
-    }
-
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public int getCalories() {
-        return calories;
+        this.id = id;
     }
 
     public LocalDate getDate() {
@@ -36,4 +33,5 @@ public class Meal {
     public LocalTime getTime() {
         return dateTime.toLocalTime();
     }
+
 }
